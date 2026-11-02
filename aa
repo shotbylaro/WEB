@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>shotbylaro</title>
+<meta name="description" content="Fotograf a kameraman pro maturáky, akce, eventy a kreativní projekty.">
+<meta property="og:title" content="shotbylaro">
+<meta property="og:description" content="Fotograf a kameraman pro maturáky, akce, eventy a kreativní projekty.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--a:#4154d6;--bg:#070707;--bg2:#0e0e0e;--card:#121212;--line:rgba(255,255,255,.09);--text:#eef0ef;--muted:#9a9f9d;--dark:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{background:var(--bg);color:var(--text);font-family:'Barlow',sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.cond{font-family:'Barlow Condensed',sans-serif;text-transform:uppercase}
+.teal,.red{color:var(--a)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,7,7,.8);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{max-width:1280px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{font-family:'Barlow Condensed';font-weight:800;font-size:30px;letter-spacing:-.01em;color:#fff;line-height:1}
+.logo span{color:var(--a)}
+.links{display:flex;gap:34px;align-items:center}
+.links a{font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:#d5d8d6;transition:color .2s}
+.links a:hover{color:var(--a)}
+.links a.mat-link{color:var(--a)}
+.right{display:flex;align-items:center;gap:18px}
+.soc{display:flex;gap:14px}
+.soc a{display:flex;color:#cfd3d1;transition:color .2s}
+.soc a:hover{color:var(--a)}
+.soc svg{width:20px;height:20px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--a);color:var(--dark);font-family:'Barlow Condensed';font-weight:700;font-size:17px;letter-spacing:.04em;text-transform:uppercase;padding:13px 26px;border-radius:14px;transition:transform .2s,filter .2s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.btn.sm{padding:10px 20px;font-size:15px;border-radius:12px}
+.btn svg{width:14px;height:14px}
+.textlink{font-family:'Barlow Condensed';font-weight:700;font-size:18px;letter-spacing:.04em;text-transform:uppercase;color:#d5d8d6;transition:color .2s}
+.textlink:hover{color:var(--a)}
+@media(max-width:1000px){.links a.hide,.soc{display:none}.links{gap:18px}}
+@media(max-width:560px){.nav-in{padding:12px 16px}.logo{font-size:24px}}
+
+/* HERO */
+#v-home .hero{min-height:100vh;position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:130px 0 40px;background:linear-gradient(180deg,rgba(7,7,7,.55) 0%,rgba(7,7,7,.7) 60%,var(--bg) 100%),url('images/foto-1.jpg') center/cover no-repeat}
+.hero-in{max-width:1280px;width:100%;margin:0 auto;padding:0 32px}
+#v-home .hero h1{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(84px,17vw,210px);line-height:.9;color:var(--text)}
+#v-home .hero h1 span{display:block}
+#v-home .hero h1 .l{color:var(--a)}
+.hero-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.hero-bottom p{font-size:clamp(17px,2vw,21px);color:#c7cbc9;line-height:1.55;max-width:560px}
+.hero-cta{display:flex;flex-direction:column;align-items:stretch;gap:14px}
+.hero-cta .row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.note{font-size:14px;color:var(--muted)}
+.scroll{display:flex;justify-content:center;margin-top:36px;color:#d5d8d6;animation:bob 1.8s ease-in-out infinite}.scroll svg{width:30px;height:30px}@keyframes bob{50%{transform:translateY(7px)}}
+@media(max-width:700px){.hero{padding-top:110px}.hero-in{padding:0 18px}}
+
+/* STRIP */
+.strip{background:var(--bg2);border-block:1px solid var(--line)}
+.strip-in{max-width:1280px;margin:0 auto;padding:22px 32px;display:flex;align-items:center;gap:10px 38px;flex-wrap:wrap}
+.strip .hud{font-family:'Barlow Condensed';font-size:14px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.strip .n{font-family:'Barlow Condensed';font-weight:700;font-size:clamp(15px,1.5vw,18px);text-transform:uppercase;color:#b9bdbb;letter-spacing:.01em}
+
+/* SECTIONS */
+.wrap{max-width:1280px;margin:0 auto;padding:130px 32px 40px}
+.label{display:flex;align-items:center;gap:16px;font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.03em;text-transform:uppercase;color:var(--a);margin-bottom:26px}
+.label i{display:block;width:70px;height:1px;background:var(--a);opacity:.6}
+.label em{font-style:normal;color:var(--muted)}
+h2.t{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(52px,9vw,128px);line-height:.95;color:var(--text);margin-bottom:46px}
+@media(max-width:700px){.wrap{padding:80px 18px 20px}}
+
+/* PORTFOLIO */
+.chips{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:44px}
+.chip{background:none;border:1px solid rgba(255,255,255,.16);color:#d5d8d6;padding:12px 26px;border-radius:50px;cursor:pointer;font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;transition:.2s}
+.chip:hover{border-color:var(--a);color:#fff}
+.chip.on{background:var(--a);border-color:var(--a);color:var(--dark)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:270px;grid-auto-flow:dense;gap:16px}
+.tile{position:relative;overflow:hidden;border-radius:26px;cursor:pointer;background:#111;border:1px solid var(--line)}
+.tile.wide{grid-column:span 2}.tile.tall{grid-row:span 2}.tile.full{grid-column:span 4}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.tile:hover img{transform:scale(1.05)}
+.tile .ov{position:absolute;inset:auto 0 0 0;padding:70px 24px 22px;background:linear-gradient(transparent,rgba(0,0,0,.82))}
+.ov small{display:block;font-family:'Barlow Condensed';font-weight:600;font-size:13px;letter-spacing:.06em;color:var(--a);text-transform:uppercase;margin-bottom:2px}
+.ov b{font-family:'Barlow Condensed';font-weight:700;font-size:26px;text-transform:uppercase;color:#fff;letter-spacing:.01em}
+.tile.hidden{display:none}
+.center{text-align:center;margin-top:44px}
+@media(max-width:900px){.grid{grid-template-columns:1fr 1fr;grid-auto-rows:220px}.tile.full{grid-column:span 2}}
+@media(max-width:520px){.grid{grid-template-columns:1fr;grid-auto-rows:240px}.tile.wide,.tile.full{grid-column:span 1}.tile.tall{grid-row:span 1}}
+
+/* SERVICES */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:26px;padding:36px 30px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--a);transform:translateY(-4px)}
+.card .num{font-family:'Barlow Condensed';font-weight:600;font-size:16px;color:var(--a);margin-bottom:44px;display:block}
+.card h3{font-family:'Barlow Condensed';font-weight:800;font-size:40px;text-transform:uppercase;line-height:1;margin-bottom:16px}
+.card p{font-size:17px;color:var(--muted);line-height:1.6;margin-bottom:34px;min-height:112px}
+.card .price{font-family:'Barlow Condensed';font-weight:700;font-size:24px;text-transform:uppercase;color:var(--a);border-top:1px solid var(--line);padding-top:18px}
+@media(max-width:900px){.cards{grid-template-columns:1fr}.card p{min-height:0}}
+
+/* MATURAKY BANNER */
+.mat{max-width:1280px;margin:70px auto 0;padding:0 32px}
+.mat a{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding:56px 48px;border-radius:26px;border:1px solid var(--line);background:linear-gradient(120deg,color-mix(in srgb,var(--a) 16%,transparent),color-mix(in srgb,var(--a) 2%,transparent) 60%),var(--card);transition:border-color .25s}
+.mat a:hover{border-color:var(--a)}
+.mat small{font-family:'Barlow Condensed';font-weight:600;font-size:15px;letter-spacing:.05em;color:var(--a);text-transform:uppercase}
+.mat h3{font-family:'Barlow Condensed';font-weight:800;font-size:clamp(38px,6vw,76px);text-transform:uppercase;line-height:.98;margin-top:8px}
+@media(max-width:700px){.mat{padding:0 18px}.mat a{padding:36px 24px}}
+
+/* ABOUT */
+.about-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;margin-bottom:60px}
+.about-head h2{margin:0;max-width:1000px;font-size:clamp(44px,7vw,100px);line-height:1.12}
+.about{display:grid;grid-template-columns:5fr 6fr;gap:60px;align-items:center}
+.about img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:26px;border:1px solid var(--line);display:block}
+.about .sub{font-family:'Barlow Condensed';font-weight:700;font-size:22px;letter-spacing:.03em;color:var(--a);text-transform:uppercase;margin-bottom:18px}
+.about p.bio{color:#bfc3c1;line-height:1.7;font-size:19px;margin-bottom:44px;max-width:560px}
+.stats{display:flex;gap:56px;flex-wrap:wrap}
+.stat b{display:block;font-family:'Barlow Condensed';font-weight:800;font-size:76px;line-height:1;color:var(--text)}
+.stat span{font-family:'Barlow Condensed';font-weight:600;font-size:15px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase}
+@media(max-width:850px){.about{grid-template-columns:1fr;gap:36px}.about img{aspect-ratio:1}}
+
+/* QUOTE */
+.quote{max-width:1280px;margin:0 auto;padding:110px 32px;text-align:center;border-top:1px solid var(--line);margin-top:110px}
+.quote q{display:block;quotes:none;font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;font-size:clamp(34px,5.4vw,76px);line-height:1.05;max-width:1100px;margin:0 auto 34px}
+.quote q em{font-style:normal;color:var(--a)}
+.quote cite{font-style:normal;font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+
+/* CTA */
+#v-home .cta{text-align:center;border-top:1px solid var(--line);padding:130px 32px 140px}
+#v-home .cta .label{justify-content:center}
+#v-home .cta h2{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(70px,16vw,220px);line-height:.9;margin:6px 0 30px}
+#v-home .cta p{color:var(--muted);font-size:20px;line-height:1.6;max-width:520px;margin:0 auto 40px}
+#v-home .cta .btn{font-size:20px;padding:18px 40px;border-radius:16px}
+#v-home .cta .note{margin-top:20px}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);background:var(--bg2)}
+.f-in{max-width:1280px;margin:0 auto;padding:44px 32px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.f-links{display:flex;gap:28px;flex-wrap:wrap}
+.f-links a{font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);transition:color .2s}
+.f-links a:hover{color:var(--a)}
+.copy{width:100%;font-size:14px;color:#5b605e;padding-top:20px;border-top:1px solid var(--line)}
+
+/* LIGHTBOX */
+#lb{position:fixed;inset:0;z-index:999;background:rgba(0,0,0,.94);display:none;align-items:center;justify-content:center;padding:30px;cursor:zoom-out}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:100%;border-radius:12px}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in-v{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none}html{scroll-behavior:auto}}
+
+body[data-view="mat"]{--a:#e23b3b}
+.links a.back-link,.links a.mat-link{color:#fff;padding:9px 20px;border-radius:12px;font-weight:700}
+.links a.back-link{background:#4154d6}
+.links a.mat-link{background:#e23b3b}
+.links a.back-link:hover,.links a.mat-link:hover{color:#fff;filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--text);border:1.5px solid rgba(255,255,255,.28)}
+.btn.ghost:hover{border-color:var(--a);filter:none}
+.mat a{--a:#e23b3b}
+.tile[data-video]::after{content:'';position:absolute;top:50%;left:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--a) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M8 5v14l11-7z'/%3E%3C/svg%3E") center/26px no-repeat;pointer-events:none;transition:transform .25s}
+.tile[data-video]:hover::after{transform:scale(1.12)}
+#lb .vid{display:none;width:min(1100px,100%);aspect-ratio:16/9}
+#lb .vid iframe{width:100%;height:100%;border:0;border-radius:12px}
+#lb .vid p{color:#fff;text-align:center;padding-top:20%}
+.ah{display:flex;align-items:center;gap:18px;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(28px,3.4vw,44px);text-transform:uppercase;margin-bottom:18px}
+.ah i{display:block;flex:0 0 90px;height:1px;background:var(--text);opacity:.7}
+.about-text p{color:#bfc3c1;line-height:1.7;font-size:19px;margin-bottom:38px;max-width:620px}
+.about-text p a{color:var(--a);border-bottom:1px solid var(--a)}
+.spec{display:flex;gap:12px;flex-wrap:wrap}
+.spec span{border:1px solid var(--line);border-radius:50px;padding:10px 22px;font-family:'Barlow Condensed';font-weight:600;font-size:18px;text-transform:uppercase;letter-spacing:.03em}
+body[data-view="home"] .only-mat{display:none!important}
+body[data-view="mat"] .only-home{display:none!important}
+.row{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.in{max-width:1280px;width:100%;margin:0 auto;padding:0 32px}
+@media(max-width:700px){.in{padding:0 18px}}
+#v-mat .note{margin-top:14px}
+.hero-cta .note,#v-mat .hero .note{text-align:center}
+.links a.sw{min-width:160px;text-align:center;display:inline-block}
+.grid.cat{grid-template-columns:repeat(3,1fr);grid-auto-rows:340px}
+.grid.cat .tile{grid-column:span 1!important;grid-row:span 1!important}
+@media(max-width:900px){.grid.cat{grid-template-columns:1fr 1fr;grid-auto-rows:240px}}
+@media(max-width:520px){.grid.cat{grid-template-columns:1fr}}
+.tile.hidden{display:none!important}
+.pc{position:relative}.pc[data-video]{cursor:pointer}
+.playbtn{display:inline-flex;margin-top:22px;background:var(--a);color:#fff;font-family:'Barlow Condensed';font-weight:700;font-size:16px;letter-spacing:.04em;text-transform:uppercase;padding:10px 20px;border-radius:12px}
+.totop{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--a);color:var(--a);transition:.2s}
+.totop:hover{background:var(--a);color:#fff;transform:translateY(-3px)}
+.totop svg{width:22px;height:22px}
+#v-mat .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:130px 0 40px;background:linear-gradient(180deg,rgba(7,7,7,.55),rgba(7,7,7,.72) 60%,var(--bg)),url('images/maturak-hero.jpg') center/cover no-repeat}
+#v-mat .hero h1{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(60px,12.5vw,170px);line-height:.92}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pc{background:var(--card);border:1px solid var(--line);border-radius:26px;overflow:hidden;transition:border-color .25s,transform .25s}
+.pc:hover{border-color:var(--a);transform:translateY(-4px)}
+.pc img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+.pc div{padding:32px 30px 36px}
+.pc small{font-family:'Barlow Condensed';font-weight:600;font-size:16px;color:var(--a);display:block;margin-bottom:34px;letter-spacing:.04em}
+.pc h3{font-family:'Barlow Condensed';font-weight:800;font-size:44px;text-transform:uppercase;line-height:1;margin-bottom:16px}
+.pc p{font-size:17px;color:var(--muted);line-height:1.65}
+@media(max-width:850px){.two{grid-template-columns:1fr}}
+
+.statement{max-width:1280px;margin:130px auto 0;padding:110px 32px;border-block:1px solid var(--line);text-align:center}
+.statement p{font-family:'Barlow Condensed';font-weight:700;text-transform:uppercase;font-size:clamp(32px,5vw,70px);line-height:1.05;max-width:1100px;margin:0 auto}
+.statement em{font-style:normal;color:var(--a)}
+
+.exp{display:grid;grid-template-columns:6fr 5fr;gap:60px;align-items:center}
+.exp p{font-size:19px;color:#bfc3c1;line-height:1.7;margin-bottom:22px;max-width:600px}
+.exp img{width:100%;aspect-ratio:6/5;object-fit:cover;border-radius:26px;border:1px solid var(--line);display:block}
+@media(max-width:850px){.exp{grid-template-columns:1fr;gap:36px}}
+
+.rev{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.rev img{width:100%;border-radius:26px;border:1px solid var(--line);display:block;object-fit:cover}
+@media(max-width:700px){.rev{grid-template-columns:1fr}}
+
+details{border-top:1px solid var(--line);padding:26px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:'Barlow Condensed';font-weight:700;font-size:clamp(24px,3vw,34px);text-transform:uppercase}
+summary::-webkit-details-marker{display:none}
+summary::after{content:'+';color:var(--a);font-size:36px;line-height:1;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--muted);font-size:18px;line-height:1.65;margin-top:16px;max-width:720px}
+
+#v-mat .cta{text-align:center;padding:130px 32px 140px;margin-top:100px;border-top:1px solid var(--line);background:radial-gradient(ellipse 60% 60% at 50% 100%,color-mix(in srgb,var(--a) 14%,transparent),transparent 70%)}
+#v-mat .cta .label{justify-content:center}
+#v-mat .cta h2{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(60px,13vw,190px);line-height:.9;margin:6px 0 30px}
+#v-mat .cta p{color:var(--muted);font-size:20px;line-height:1.6;max-width:520px;margin:0 auto 40px}
+#v-mat .cta .btn{font-size:20px;padding:18px 40px;border-radius:16px}
+
+</style>
+</head>
+<body id="top" data-view="home">
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#home" data-route="1">shotby<span>laro</span></a>
+    <div class="links only-home">
+      <a class="hide" href="#portfolio">Portfolio</a>
+      <a class="hide" href="#sluzby">Služby</a>
+      <a class="hide" href="#o-mne">O mně</a>
+      <a class="hide" href="#kontakt">Kontakt</a>
+      <a class="mat-link sw" href="#maturaky" data-route="1">Maturáky</a>
+    </div>
+    <div class="links only-mat">
+      <a class="hide" href="#nabidka">Nabídka</a>
+      <a class="hide" href="#recenze">Recenze</a>
+      <a class="hide" href="#qna">QnA</a>
+      <a class="hide" href="#rezervace">Rezervace</a>
+      <a class="back-link sw" href="#home" data-route="1">← Hlavní stránka</a>
+    </div>
+    <div class="right">
+      <div class="soc">
+        <a href="https://instagram.com/shotbylaro" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.youtube.com/results?search_query=shotbylaro" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.200C2 8.800 2 12 2 12s0 3.200.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.800 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.600.4-4.8.4-4.8s0-3.200-.4-4.8zM10 15V9l5.200 3z"/></svg></a>
+        <a href="mailto:shotbylaro@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+      </div>
+      <a class="btn sm only-home" href="https://forms.gle/your-form" target="_blank" rel="noopener">Poptávka <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+      <a class="btn sm only-mat" href="https://docs.google.com/forms/d/e/1FAIpQLSfKtuQHCWfxWVljEsdHE0_VNnSGQztgUv2oACinNXEtPwDXmg/viewform?usp=header" target="_blank" rel="noopener">Poptávka <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+    </div>
+  </div>
+</nav>
+<main id="v-home">
+<header class="hero">
+  <div class="hero-in">
+    <h1><span>Shot</span><span>by</span><span class="l">Laro</span></h1>
+  </div>
+  <div class="hero-in">
+    <div class="hero-bottom">
+      <p>Fotograf a kameraman pro vaše maturáky, akce, eventy a kreativní projekty.</p>
+      <div class="hero-cta">
+        <div class="row">
+          <a class="btn" href="https://forms.gle/your-form" target="_blank" rel="noopener">Domluvit spolupráci <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+          <a class="btn ghost" href="#portfolio">Moje práce <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
+        </div>
+        <div class="note">Zdarma a nezávazně</div>
+      </div>
+    </div>
+    <a class="scroll" href="#portfolio" aria-label="Posunout dolů"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
+  </div>
+</header>
+
+<div class="strip">
+  <div class="strip-in">
+    <span class="hud">// Pracoval jsem pro</span>
+    <span class="n">European Student Council</span>
+    <span class="n">HC Dukla Jihlava</span>
+    <span class="n">Volejbal Jihlava</span>
+    <span class="n">Kraj Vysočina</span>
+    <span class="n">Ji.hlava</span>
+    <span class="n">Maturitní plesy</span>
+  </div>
+</div>
+
+<section class="wrap" id="portfolio">
+  <div class="label rv">// Portfolio</div>
+  <h2 class="t rv">Vybrané projekty</h2>
+  <div class="chips rv" id="chips">
+    <button class="chip on" data-f="all">Vše</button>
+    <button class="chip" data-f="akce">Akce</button>
+    <button class="chip" data-f="plesy">Plesy</button>
+    <button class="chip" data-f="sport">Sport</button>
+    <button class="chip" data-f="portrety">Portréty</button>
+    <button class="chip" data-f="video">Video</button>
+  </div>
+  <div class="grid rv" id="grid">
+    <div class="tile wide" data-c="akce" data-video="https://www.youtube.com/watch?v=VIDEO_ID"><img src="images/foto-1.jpg" alt="Festival night" loading="lazy"><div class="ov"><small>Akce</small><b>Festival Night</b></div></div>
+    <div class="tile tall" data-c="plesy"><img src="images/foto-2.jpg" alt="Maturitní ples" loading="lazy"><div class="ov"><small>Plesy</small><b>Maturitní ples</b></div></div>
+    <div class="tile" data-c="sport" data-video="https://www.youtube.com/watch?v=VIDEO_ID"><img src="images/foto-3.jpg" alt="HC Dukla Jihlava" loading="lazy"><div class="ov"><small>Sport</small><b>HC Dukla Jihlava</b></div></div>
+    <div class="tile" data-c="portrety"><img src="images/foto-4.jpg" alt="Portrét ve studiu" loading="lazy"><div class="ov"><small>Portréty</small><b>Portrét – studio</b></div></div>
+    <div class="tile" data-c="video" data-video="https://www.youtube.com/watch?v=VIDEO_ID"><img src="images/foto-5.jpg" alt="Aftermovie" loading="lazy"><div class="ov"><small>Video</small><b>Aftermovie</b></div></div>
+    <div class="tile" data-c="sport"><img src="images/foto-6.jpg" alt="Zápas sezóny" loading="lazy"><div class="ov"><small>Sport</small><b>Zápas sezóny</b></div></div>
+    <div class="tile full" data-c="plesy"><img src="images/foto-7.jpg" alt="Stužkovák" loading="lazy"><div class="ov"><small>Plesy</small><b>Stužkovák</b></div></div>
+    <div class="tile extra hidden" data-c="akce"><img src="images/foto-8.jpg" alt="Koncert – detail" loading="lazy"><div class="ov"><small>Akce</small><b>Koncert – detail</b></div></div>
+    <div class="tile extra hidden" data-c="akce"><img src="images/foto-9.jpg" alt="Konference" loading="lazy"><div class="ov"><small>Akce</small><b>Konference</b></div></div>
+    <div class="tile extra hidden" data-c="plesy"><img src="images/foto-10.jpg" alt="Šerpování" loading="lazy"><div class="ov"><small>Plesy</small><b>Šerpování</b></div></div>
+    <div class="tile extra hidden" data-c="sport"><img src="images/foto-11.jpg" alt="Volejbal Jihlava" loading="lazy"><div class="ov"><small>Sport</small><b>Volejbal Jihlava</b></div></div>
+    <div class="tile extra hidden" data-c="portrety"><img src="images/foto-12.jpg" alt="Portrét – exteriér" loading="lazy"><div class="ov"><small>Portréty</small><b>Portrét – exteriér</b></div></div>
+    <div class="tile extra hidden" data-c="portrety"><img src="images/foto-13.jpg" alt="Portrét – detail" loading="lazy"><div class="ov"><small>Portréty</small><b>Portrét – detail</b></div></div>
+    <div class="tile extra hidden" data-c="video" data-video="https://www.youtube.com/watch?v=VIDEO_ID"><img src="images/foto-14.jpg" alt="Reels" loading="lazy"><div class="ov"><small>Video</small><b>Reels</b></div></div>
+    <div class="tile extra hidden" data-c="video" data-video="https://www.youtube.com/watch?v=VIDEO_ID"><img src="images/foto-15.jpg" alt="Teaser" loading="lazy"><div class="ov"><small>Video</small><b>Teaser</b></div></div>
+  </div>
+  <div class="center"><a class="btn" href="https://shotbylaro.eu/" target="_blank" rel="noopener">Zobrazit celou galerii <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a></div>
+</section>
+
+<section class="wrap" id="sluzby">
+  <div class="label rv">// Služby</div>
+  <h2 class="t rv">Co dělám</h2>
+  <div class="cards">
+    <div class="card rv"><span class="num">01</span><h3>Akce &amp; plesy</h3><p>Reportážní fotografie z firemních, školních i společenských akcí. Zachytím atmosféru, lidi, emoce i detaily tak, aby výsledek věrně vystihl celý večer a dal se použít na sítě i do archivu.</p></div>
+    <div class="card rv"><span class="num">02</span><h3>Videa &amp; reels</h3><p>Krátká videa, aftermovie a Reels na sociální sítě. Ze záběrů sestříhám dynamický film s hudbou a tempem, které sedí na vaši akci, značku nebo tým, včetně variant pro různé platformy.</p></div>
+    <div class="card rv"><span class="num">03</span><h3>Portréty &amp; sport</h3><p>Portréty v exteriéru i ve studiu a sportovní fotografie ze zápasů či tréninků. Dbám na přirozený výraz, práci se světlem a dynamiku, aby fotky působily autenticky a profesionálně.</p></div>
+  </div>
+</section>
+
+<div class="mat rv">
+  <a href="#maturaky" data-route="1">
+    <div>
+      <small>Maturitní plesy</small>
+      <h3>Váš večer.<br>Vaše vzpomínky.</h3>
+    </div>
+    <span class="btn">Foto &amp; video na maturák <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></span>
+  </a>
+</div>
+
+<section class="wrap" id="o-mne">
+  <div class="label rv">// O mně</div>
+  <div class="about-head">
+    <h2 class="t rv">Jmenuji se <span class="teal">Roman</span> a jsem fotograf a tvůrce videí.</h2>
+    <a class="btn rv" href="#kontakt">Kontakt <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+  </div>
+  <div class="about">
+    <img class="rv" src="images/laro.jpg" alt="Roman, fotograf a kameraman" loading="lazy">
+    <div class="rv about-text">
+      <h3 class="ah">O mně <i></i></h3>
+      <p>Jmenuji se Roman a fotografii i videu se věnuji od roku 2020. Studuji obor Fotograf a nejraději tvořím tam, kde se něco děje: na akcích, plesech, sportovních zápasech i při portrétním focení. Zkušenosti sbírám také jako dlouholetý dobrovolník na Mezinárodním festivalu dokumentárních filmů <a href="https://www.ji-hlava.cz/" target="_blank" rel="noopener">Ji.hlava</a> a podílel jsem se na řadě projektů pro školu i pro Kraj Vysočina. Mimo focení a natáčení rád cestuju, nejraději low cost, a všechno zaznamenávám na svém druhém účtu <a href="https://instagram.com/laromcino" target="_blank" rel="noopener">@laromcino</a> na Instagramu.</p>
+      <h3 class="ah">Jak pracuji &amp; specializace <i></i></h3>
+      <p>Pracuji spolehlivě, s důrazem na atmosféru, emoce a kvalitu výsledného záběru. Snažím se vždy zachytit momenty tak, aby působily přirozeně a měly svou dynamiku. Zpravidla neodevzdávám dílo, se kterým nejsem sám spokojený.</p>
+      <div class="spec"><span>Portréty</span><span>Společenské události</span><span>Sport</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="kontakt">
+  <div class="label rv">// Poptávka</div>
+  <h2 class="rv">Máš akci?</h2>
+  <p class="rv">Vyplň krátký formulář, zabere to minutu. Termíny na plesovou sezónu se rychle plní.</p>
+  <a class="btn rv" href="https://forms.gle/your-form" target="_blank" rel="noopener">Zarezervovat termín <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+  <div class="note rv">Odpovím do 2–3 pracovních dní · Bez závazků</div>
+</section>
+
+</main>
+<main id="v-mat" hidden>
+<header class="hero">
+  <div class="in">
+    <div class="label">// Maturitní ples <i></i> <em>2027/28</em></div>
+    <h1>Video a foto<br>na maturitní<br><span class="red">ples</span></h1>
+  </div>
+  <div class="in"><div class="hero-bottom">
+    <p>Hledáte někoho, kdo zachytí energii vašeho maturáku tak, abyste si ho chtěli pouštět pořád dokola? Nabízím profesionální video a foto zaměřené na kvalitu a emoce, které nezapomenete.</p>
+    <div>
+      <div class="row">
+        <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfKtuQHCWfxWVljEsdHE0_VNnSGQztgUv2oACinNXEtPwDXmg/viewform?usp=header" target="_blank" rel="noopener">Domluvit termín <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+        <a class="btn ghost" href="#nabidka">Co nabízím <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
+      </div>
+      <div class="note">Zdarma a nezávazně</div>
+    </div>
+  </div></div>
+</header>
+
+<section class="wrap" id="nabidka">
+  <div class="label rv">// Nabídka</div>
+  <h2 class="t rv">Foto nebo video?</h2>
+  <div class="two">
+    <article class="pc rv"><img src="images/maturak-foto.jpg" alt="Foto z maturitního plesu" loading="lazy"><div><small>01 / FOTO</small><h3>Foto z plesu</h3><p>Soustředím se na autentické momentky z parketu a zachycení jedinečné atmosféry celého večera. Detailně zdokumentuji nástupy, šerpování i půlnoční překvapení, přičemž každá fotografie prochází profesionální postprodukcí.</p></div></article>
+    <article class="pc rv" data-video="https://www.youtube.com/watch?v=opngEjQVglk"><img src="images/maturak-video.jpg" alt="Video z maturitního plesu" loading="lazy"><div><small>02 / VIDEO</small><h3>Video z plesu</h3><p>Zachytím váš večer v dynamickém 3–6minutovém filmu a nadupaných Reels na sociální sítě. Samozřejmostí je kompletní záznam nástupovek, šerpování i půlnočky s možností dodání všech natočených záběrů.</p><span class="playbtn">▶ Přehrát video</span></div></article>
+  </div>
+</section>
+
+<section class="statement rv">
+  <p>Nezapomenutelné okamžiky si zaslouží <em>dokonalý záznam.</em></p>
+</section>
+
+<section class="wrap">
+  <div class="label rv">// Co čekat</div>
+  <h2 class="t rv">Co můžete očekávat</h2>
+  <div class="exp">
+    <div class="rv">
+      <p>Je to na vás: foto nebo video? Pro mě to není jen práce, je to zápal pro vaše vzpomínky. Pokud chcete fotky, dostanete galerii plnou života a barev. Pokud zvolíte video, vytvořím pro vás film, ve kterém váš ples znovu ožije.</p>
+      <p>Jsem váš parťák, co si večer užije s vámi, jen s kamerou v ruce. Všechny důležité momenty v jednom balení a bez zbytečného stresu.</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSfKtuQHCWfxWVljEsdHE0_VNnSGQztgUv2oACinNXEtPwDXmg/viewform?usp=header" target="_blank" rel="noopener">Chci to zkusit <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+    </div>
+    <img class="rv" src="images/maturak-ocekavat.jpg" alt="Maturitní ples" loading="lazy">
+  </div>
+</section>
+
+<section class="wrap" id="recenze">
+  <div class="label rv">// Recenze</div>
+  <h2 class="t rv">Recenze od vás</h2>
+  <div class="rev">
+    <img class="rv" src="images/recenze-1.jpg" alt="Recenze od klienta" loading="lazy">
+    <img class="rv" src="images/recenze-2.jpg" alt="Recenze od klienta" loading="lazy">
+  </div>
+</section>
+
+<section class="wrap" id="qna">
+  <div class="label rv">// QnA</div>
+  <h2 class="t rv">Časté dotazy</h2>
+  <div class="rv">
+    <details><summary>Kdy se mám ozvat?</summary><p>Co nejdřív, termíny na plesovou sezónu se rychle plní. Formulář je nezávazný a zabere minutu.</p></details>
+    <details><summary>Dostanu všechny natočené záběry?</summary><p>Ano, u videa je možné dodat všechny natočené záběry navíc ke zpracovanému filmu.</p></details>
+    <details><summary>Dá se vzít foto i video dohromady?</summary><p>Jo, napiš to do formuláře a domluvíme se na nejlepší variantě pro váš ples.</p></details>
+    <details><summary>Kdy dostanu hotový výsledek?</summary><p>Termín dodání domluvíme předem, ať víš, na čem jsi.</p></details>
+  </div>
+</section>
+
+<section class="cta" id="rezervace">
+  <div class="label rv">// Poptávka</div>
+  <h2 class="rv">Máte termín?</h2>
+  <p class="rv">Vyplňte krátký nezávazný formulář a ozvu se vám do 2–3 pracovních dnů.</p>
+  <a class="btn rv" href="https://docs.google.com/forms/d/e/1FAIpQLSfKtuQHCWfxWVljEsdHE0_VNnSGQztgUv2oACinNXEtPwDXmg/viewform?usp=header" target="_blank" rel="noopener">Domluvit termín <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+</section>
+
+</main>
+<footer>
+  <div class="f-in">
+    <a class="logo" href="#top">shotby<span>laro</span></a>
+    <div class="f-links">
+      <a href="mailto:shotbylaro@gmail.com">shotbylaro@gmail.com</a>
+      <a href="https://instagram.com/shotbylaro" target="_blank" rel="noopener">@shotbylaro</a>
+      <a href="https://shotbylaro.eu/" target="_blank" rel="noopener">Fotogalerie</a>
+      <a href="https://www.youtube.com/results?search_query=shotbylaro" target="_blank" rel="noopener">YouTube</a>
+    </div>
+    <a class="totop" href="#top" aria-label="Zpět nahoru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
+    <div class="copy">© shotbylaro 2025–2026</div>
+  </div>
+</footer>
+
+<div id="lb"><img alt=""><div class="vid"></div></div>
+
+<script>
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in-v');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+document.getElementById('chips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');
+  const f=b.dataset.f;document.getElementById('grid').classList.toggle('cat',f!=='all');
+  document.querySelectorAll('.tile').forEach(t=>t.classList.toggle('hidden',f==='all'?t.classList.contains('extra'):t.dataset.c!==f));
+});
+
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbv=lb.querySelector('.vid');
+function yt(u){const m=u.match(/(?:v=|youtu\.be\/|embed\/)([\w-]{6,})/);return m?m[1]:null}
+function closeLb(){lb.classList.remove('on');lbv.innerHTML='';lbi.removeAttribute('src')}
+document.querySelectorAll('.tile,.pc[data-video]').forEach(t=>t.addEventListener('click',()=>{
+  const v=t.dataset.video;
+  if(v){const id=yt(v);lbi.style.display='none';lbv.style.display='block';
+    lbv.innerHTML=(id&&id!=='VIDEO_ID')?'<iframe src="https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0" allow="autoplay; fullscreen" allowfullscreen></iframe>':'<p>Sem přidej odkaz na video (data-video v index.html).</p>';}
+  else{lbv.style.display='none';lbi.style.display='block';lbi.src=t.querySelector('img').src}
+  lb.classList.add('on')}));
+lb.addEventListener('click',e=>{if(!e.target.closest('iframe'))closeLb()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+
+const co=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;co.unobserve(e.target);
+  const el=e.target,n=+el.dataset.n,s=el.dataset.s;let i=0;
+  const step=()=>{i+=Math.max(1,Math.ceil(n/40));if(i>=n){el.textContent=n+s}else{el.textContent=i;requestAnimationFrame(step)}};step();
+}),{threshold:.6});
+document.querySelectorAll('[data-n]').forEach(el=>co.observe(el));
+
+// stránky (home / maturáky)
+function view(){const mat=location.hash==='#maturaky';document.body.dataset.view=mat?'mat':'home';
+  document.getElementById('v-home').hidden=mat;document.getElementById('v-mat').hidden=!mat;
+  document.title=mat?'Maturitní ples – foto a video | shotbylaro':'shotbylaro';}
+window.addEventListener('hashchange',()=>{view();window.scrollTo(0,0)});
+document.addEventListener('click',e=>{
+  const a=e.target.closest('a[href^="#"]');if(!a||a.dataset.route)return;
+  e.preventDefault();const id=a.getAttribute('href').slice(1);
+  if(id==='top'){window.scrollTo({top:0,behavior:'smooth'});return}
+  const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});
+});
+view();
+</script>
+</body>
+</html>
