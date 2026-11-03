@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="0;url=/">
+<script>
+  // vlastní doména -> "/", adresa username.github.io/WEB/ -> "/WEB/"
+  var base='/';
+  if(location.hostname.endsWith('github.io')){base='/'+location.pathname.split('/')[1]+'/'}
+  location.replace(base);
+</script>
+<title>Přesměrování…</title>
+</head>
+<body>
+<a href="/">Pokračovat na shotbylaro.eu</a>
+</body>
+</html>
