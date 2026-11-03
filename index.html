@@ -60,6 +60,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(7,7,7,.8);ba
 .strip{background:var(--bg2);border-block:1px solid var(--line)}
 .strip-in{max-width:1280px;margin:0 auto;padding:22px 32px;display:flex;align-items:center;gap:10px 38px;flex-wrap:wrap}
 .strip .hud{font-family:'Barlow Condensed';font-size:14px;font-weight:600;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+.strip a.n{transition:color .2s}
+.strip a.n:hover{color:var(--a)}
 .strip .n{font-family:'Barlow Condensed';font-weight:700;font-size:clamp(15px,1.5vw,18px);text-transform:uppercase;color:#b9bdbb;letter-spacing:.01em}
 
 /* SECTIONS */
@@ -192,9 +194,12 @@ body[data-view="mat"] .only-home{display:none!important}
 .ytlink{margin-left:18px;font-family:'Barlow Condensed';font-weight:600;font-size:16px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line);transition:color .2s}
 .ytlink:hover{color:var(--a)}
 #lb video{max-width:100%;max-height:100%;border-radius:12px;background:#000}
-.totop{display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;border:1.5px solid var(--a);color:var(--a);transition:.2s}
-.totop:hover{background:var(--a);color:#fff;transform:translateY(-3px)}
+.totop{position:fixed;right:max(18px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));z-index:90;display:flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:50%;background:var(--a);color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.45);opacity:0;pointer-events:none;transform:translateY(12px);transition:opacity .25s,transform .25s,filter .2s}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+.totop:hover{filter:brightness(1.12)}
 .totop svg{width:22px;height:22px}
+html.lock,html.lock body{overflow:hidden}
+#lb{overscroll-behavior:contain}
 #v-mat .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:130px 0 40px;background:linear-gradient(180deg,rgba(7,7,7,.55),rgba(7,7,7,.72) 60%,var(--bg)),url('maturak-hero.jpg') center/cover no-repeat}
 #v-mat .hero h1{font-family:'Barlow Condensed';font-weight:800;text-transform:uppercase;font-size:clamp(60px,12.5vw,170px);line-height:.92}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
@@ -274,7 +279,7 @@ details p{color:var(--muted);font-size:18px;line-height:1.65;margin-top:16px;max
         <a href="https://www.youtube.com/@shotbylaro" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.200C2 8.800 2 12 2 12s0 3.200.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.800 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.600.4-4.8.4-4.8s0-3.200-.4-4.8zM10 15V9l5.200 3z"/></svg></a>
         <a href="mailto:shotbylaro@gmail.com" aria-label="E-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
       </div>
-      <a class="btn sm only-home" href="https://docs.google.com/forms/d/e/1FAIpQLSeoXPqvuAxRpaBmjyMjuskC5IGemnlqt21en8e9YHWEZgcs2Q/viewform?usp=publish-editor" target="_blank" rel="noopener">Poptávka <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
+      <a class="btn sm only-home" href="https://forms.gle/your-form" target="_blank" rel="noopener">Poptávka <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
       <a class="btn sm only-mat" href="https://docs.google.com/forms/d/e/1FAIpQLSfKtuQHCWfxWVljEsdHE0_VNnSGQztgUv2oACinNXEtPwDXmg/viewform?usp=header" target="_blank" rel="noopener">Poptávka <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11 11 3M4.5 3H11v6.5"/></svg></a>
     </div>
   </div>
@@ -295,19 +300,18 @@ details p{color:var(--muted);font-size:18px;line-height:1.65;margin-top:16px;max
         <a class="btn ghost" href="#portfolio">Moje práce <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 2v10M3 8l4 4 4-4"/></svg></a>
       </div>
     </div>
-    <a class="scroll" href="#portfolio" aria-label="Posunout dolů"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></a>
   </div>
 </header>
 
 <div class="strip">
   <div class="strip-in">
     <span class="hud">// Spolupracoval jsem s</span>
-    <span class="n"> MFDF Ji.hlava</span>
-    <span class="n">European Student Council</span>
-    <span class="n">Volejbal Jihlava</span>
-    <span class="n">HC Dukla Jihlava</span>
-    <span class="n">Kraj Vysočina</span>
-    <span class="n">Maturitní plesy</span>
+    <a class="n" href="https://www.ji-hlava.cz" target="_blank" rel="noopener">MFDF Ji.hlava</a>
+    <a class="n" href="https://school-education.ec.europa.eu/en/etwinning/projects/european-student-council-2026-we-represent" target="_blank" rel="noopener">European Student Council</a>
+    <a class="n" href="https://www.instagram.com/volejbaljihlava/" target="_blank" rel="noopener">Volejbal Jihlava</a>
+    <a class="n" href="https://www.hcdukla.cz" target="_blank" rel="noopener">HC Dukla Jihlava</a>
+    <a class="n" href="https://www.kr-vysocina.cz" target="_blank" rel="noopener">Kraj Vysočina</a>
+    <a class="n" href="#maturaky" data-route="1">Maturitní plesy</a>
   </div>
 </div>
 
@@ -466,10 +470,11 @@ details p{color:var(--muted);font-size:18px;line-height:1.65;margin-top:16px;max
       <a href="https://eu.zonerama.com/shotbylaro/1372324" target="_blank" rel="noopener">Fotogalerie</a>
       <a href="https://www.youtube.com/@shotbylaro" target="_blank" rel="noopener">YouTube</a>
     </div>
-    <a class="totop" href="#top" aria-label="Zpět nahoru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
     <div class="copy">© shotbylaro 2025–2026</div>
   </div>
 </footer>
+
+<a class="totop" id="totop" href="#top" aria-label="Zpět nahoru"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></a>
 
 <div id="lb"><img alt=""></div>
 
@@ -500,18 +505,21 @@ const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
 const isFile=u=>/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u);
 const ytId=u=>{const m=u.match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{6,})/);return m?m[1]:null};
 const NOVID='Sem přidej odkaz na video (data-video v index.html).';
-function closeLb(){lb.classList.remove('on');lbi.removeAttribute('src');const v=lb.querySelector('video');if(v){v.pause();v.remove()}}
+function openLb(){lb.classList.add('on');document.documentElement.classList.add('lock')}
+function closeLb(){lb.classList.remove('on');document.documentElement.classList.remove('lock');lbi.removeAttribute('src');const v=lb.querySelector('video');if(v){v.pause();v.remove()}}
 
 // portfolio: foto se otevře ve větším okně, video ze souboru (.mp4) se přehraje tamtéž, YouTube odkaz se otevře na YouTube
 document.querySelectorAll('.tile').forEach(t=>t.addEventListener('click',()=>{
   const v=t.dataset.video,im=t.querySelector('img');
   if(v){
     if(v.includes('VIDEO_ID')){alert(NOVID);return}
-    if(isFile(v)){lbi.style.display='none';const el=document.createElement('video');el.src=v;el.controls=true;el.autoplay=true;el.playsInline=true;if(im)el.poster=im.src;lb.appendChild(el);lb.classList.add('on');return}
+    if(isFile(v)){lbi.style.display='none';const el=document.createElement('video');el.src=v;el.controls=true;el.autoplay=true;el.playsInline=true;if(im)el.poster=im.src;lb.appendChild(el);openLb();return}
     window.open(v,'_blank','noopener');return}
-  if(!im)return;lbi.style.display='block';lbi.src=im.src;lb.classList.add('on')}));
+  if(!im)return;lbi.style.display='block';lbi.src=im.src;openLb()}));
 lb.addEventListener('click',e=>{if(e.target.closest('video'))return;closeLb()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb()});
+lb.addEventListener('wheel',e=>e.preventDefault(),{passive:false});
+lb.addEventListener('touchmove',e=>{if(!e.target.closest('video'))e.preventDefault()},{passive:false});
 
 // maturáky: video se otevře na YouTube (vybrané náhodně výše)
 (function(){const card=document.querySelector('.pc[data-video]');if(!card)return;
@@ -540,6 +548,18 @@ document.addEventListener('click',e=>{
   const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'});
 });
 view();
+
+// klik na logo: zavře okna, vrátí filtr na "Vše" a hodí úplně nahoru (z maturáků na hlavní stránku)
+document.querySelectorAll('.logo').forEach(l=>l.addEventListener('click',e=>{
+  e.preventDefault();closeLb();
+  const all=document.querySelector('.chip[data-f="all"]');if(all&&!all.classList.contains('on'))all.click();
+  if(location.hash==='#maturaky'){location.hash='#home'}else{window.scrollTo({top:0,behavior:'smooth'})}
+}));
+
+// plovoucí tlačítko nahoru
+const tt=document.getElementById('totop');
+const tts=()=>tt.classList.toggle('show',window.scrollY>500);
+window.addEventListener('scroll',tts,{passive:true});tts();
 </script>
 </body>
 </html>
