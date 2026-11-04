@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cs"> 
+<html lang="cs">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
@@ -253,6 +253,7 @@ details p{color:var(--muted);font-size:18px;line-height:1.65;margin-top:16px;max
  .btn.sm{padding:8px 12px;font-size:14px}.btn.sm svg{display:none}
  .long{display:none}
 }
+
 </style>
 </head>
 <body id="top" data-view="home">
@@ -560,6 +561,7 @@ document.querySelectorAll('.logo').forEach(l=>l.addEventListener('click',e=>{
 const tt=document.getElementById('totop');
 const tts=()=>tt.classList.toggle('show',window.scrollY>500);
 window.addEventListener('scroll',tts,{passive:true});tts();
+
 </script>
 </body>
 </html>
